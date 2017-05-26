@@ -31,10 +31,12 @@ exports.atualiza_usuario = function(req, res) {
             if(error) 
                 res.send(error);
             
+            var usuRec = req.body;
+
             //Segundo: Diferente do Selecionar Por Id... a resposta será a atribuição do que encontramos na classe modelo:
-            usuario.nome = req.body.nome;
-            usuario.login = req.body.login;
-            usuario.senha = req.body.senha;
+            usuario.nome = usuRec.nome;
+            usuario.login = usuRec.login;
+            usuario.senha = usuRec.senha;
 
             //Terceiro: Agora que já atualizamos os campos, precisamos salvar essa alteração....
             Usuario.save(function(error) {
@@ -47,16 +49,12 @@ exports.atualiza_usuario = function(req, res) {
     }
 
 exports.cadastra_usuario = function(req, res)
-{
-    var usuario = new Usuario(); //Crio uma instancia do usuário
-
-    //Recupero seus respectivos dados 
-    usuario.nome = req.params.nome; 
-    usuario.login = req.params.login;
-    usuario.senha = req.parans.senha;
-
+{    
+    console.log("Cadastrando usuario");
+    var novoUsuario = req.body;
+    var usuario = new Usuario(novoUsuario); //Crio uma instancia do usuário              
     //Realizo a operação de salvar
-    Usuario.save(function(error){
+    usuario.save(function(error){
         if(error)        
           res.send(error);
 
