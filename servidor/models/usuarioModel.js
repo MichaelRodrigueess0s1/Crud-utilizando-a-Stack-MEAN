@@ -1,6 +1,6 @@
 /**
  * Arquivo: usuario.js
- * Author: Glaucia Lemos
+ * Author: MDR
  * Description: Arquivo onde trataremos o modelo do projeto. 
  * Definição dos esquemas para serem utilizadas na Base de Dados (MongoDb)
  * Data: 13/10/2016
@@ -15,4 +15,4 @@ var UsuarioSchema = new Schema({
     senha: String
 });
 
-module.exports = mongoose.model('Usuario', UsuarioSchema);
+module.exports = mongoose.model('Usuarios', UsuarioSchema);
