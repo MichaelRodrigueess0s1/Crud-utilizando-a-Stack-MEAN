@@ -1,0 +1,108 @@
+
+  <div ng-show="logado" class="jumbotron">
+      <h1 class="text-center">{{tituloPagina}}</h1>
+  </div>
+    <div ng-show="logado" class="container">
+        <div ng-show="MensagemAPI" class="alert alert-{{tipoAlerta}}" role="alert">{{MensagemAPI}}
+                <a href="#/receitas">Voltar</a> ou <a  href="#/detalhesReceita/{{receitaRetorno.id}}">Editar</a>
+        </div>
+
+        <div class="row">
+        <form name="formularioReceita" class="form-horizontal" novalidate>
+          <fieldset>
+            <legend>Nova Receita</legend>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="Nome">Nome</label>  
+                <div class="col-md-5">
+                <input ng-required="true" ng-minlength="5" ng-model="receita.nome" id="Nome" name="Nome" type="text" placeholder="Nome da Receita" class="form-control input-md">
+                 <span style="color:#FF0000" ng-show="formularioReceita.Nome.$invalid && formularioReceita.Nome.$dirty"> 
+				              Campo nome é obrigado e deve conter no mínimo 5 caracteres </span>                
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="token">Token</label>
+                <div class="col-md-4">
+                  <input ng-required="true" ng-minlength="6" ng-model="receita.token" id="token" name="Token" type="password" placeholder="Token" class="form-control input-md">
+                  <span style="color:#FF0000" ng-show="formularioReceita.Token.$invalid && formularioReceita.Token.$dirty"> 
+				              Campo Token é obrigatório e deve possuir no minimo 6 caracteres </span>                                
+                </div>
+              </div>
+              <!-- Multiple Radios -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="dificuldade">Nível de Dificuldade</label>
+                <div class="col-md-4">
+                <div class="radio">
+                  <label for="dificuldade-0">
+                    <input ng-model="receita.dificuldade" type="radio" name="dificuldade" id="dificuldade-0" value="1" checked="checked">
+                    Fácil
+                  </label>
+                </div>
+                <div class="radio">
+                  <label for="dificuldade-1">
+                    <input ng-model="receita.dificuldade" type="radio" name="dificuldade" id="dificuldade-1" value="2">
+                    Média
+                  </label>
+                </div>
+                <div class="radio">
+                  <label for="dificuldade-2">
+                    <input ng-model="receita.dificuldade" type="radio" name="dificuldade" id="dificuldade-2" value="3">
+                    Dificil
+                  </label>
+                </div>
+                </div>
+              </div>
+            <!-- Select Basic -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="tipo">Tipo</label>
+              <div class="col-md-4">
+                <select ng-required="true" ng-model="receita.tipo" id="tipo" name="tipo" class="form-control">
+                  <option value="Doce">Doce</option>
+                  <option value="Salgado">Salgado</option>
+                  <option value="Frio">Frio</option>
+                  <option value="Bebida">Bebida</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- File Button 
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="foto">Foto</label>
+              <div class="col-md-4">
+                <input ng-model="receita.foto" id="foto" name="foto" class="input-file" type="file">
+              </div>
+            </div>--> 
+
+            <!-- Textarea -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="passo">Passo a Passo</label>
+              <div class="col-md-4">                     
+                <textarea ng-required="true" ng-model="receita.passopasso" class="form-control" id="passo" name="Passo">Descreva aqui o passo a passo para poder fazer a receita</textarea>
+                   <span style="color:#FF0000" ng-show="formularioReceita.Passo.$invalid && formularioReceita.Passo.$dirty"> 
+				              È obrigatório Descrever o passo a passo da receita </span> 
+              </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="tempo">Tempo de preparo</label>  
+              <div class="col-md-4">
+              <input ng-required="true"  ng-model="receita.tempo" id="tempo" name="Tempo" type="text" placeholder="Tempo" class="form-control input-md">
+               <span style="color:#FF0000" ng-show="formularioReceita.Tempo.$invalid && formularioReceita.Tempo.$dirty"> 
+				             Informe o tempo de preparo da receita! </span> 
+              </div>
+            </div>
+
+            <!-- Button (Double) -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="Finalizar">Finalizar</label>
+              <div class="col-md-8">
+                <button ng-disabled="formularioReceita.$invalid" ng-click="adicionareceita(receita)" id="Finalizar" name="Finalizar" class="btn btn-success">Cadastrar</button>
+                <button ng-click="limpaFormulario()" id="limpar" name="limpar" class="btn btn-danger">Limpar</button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+        </div>
+    </div>
+  
+    <div ng-show="!logado" class="alert alert-danger"> <h1 class="text-center">ACESSO NÃO AUTORIZADO</h1></div>

@@ -1,0 +1,15 @@
+
+.carousel .item img {
+                min-width: 100%;
+                max-height: 760px;
+            }
+
+
+input.ng-invalid.ng-dirty, textarea.ng-invalid.ng-dirty   {
+        border-color:#FF0000;
+        border-width: 3px;
+    }
+    input.ng-valid.ng-dirty, textarea.ng-valid.ng-dirty{
+        border-color:#00FF00;
+        border-width: 3px;
+    }

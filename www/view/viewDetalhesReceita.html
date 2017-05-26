@@ -1,0 +1,70 @@
+﻿<div ng-show="logado" class="jumbotron">
+    <h1 class="text-center">{{tituloPagina}}</h1>
+    <h5 class="text-center text-success" ng-show="MensagemAPI">{{MensagemAPI}}</h1>
+</div>
+<div ng-show="logado" class="container">        
+
+    <div class="row well">
+       <div class="col-md-12">
+           <form class="form-inline">
+                <fieldset>                
+                <legend>Adicionar Ingrediente</legend>                
+                    <div>                
+                        <div class="col-md-3">
+                            Matéria Prima
+                            <select class="form-control" ng-model="materiaSelecionada" ng-options="materia.nome group by materia.medida for materia in listaMateriaPrima"> 
+                                <option value="">Selecione uma materia prima</option>
+                            </select>                    
+                        </div>                        
+                        <div class="col-md-3">
+                        <div class="form-group">                            
+                            <label ng-show="materiaSelecionada" >Custo: R${{materiaSelecionada.custo}} qtd: {{materiaSelecionada.quantidade}}  {{materiaSelecionada.medida}}</label>
+                            <div class="input-group">                                                                
+                                <input ng-model="ingrediente.quantidade" type="number" class="form-control" id="Qtd" placeholder="Qtd">                                
+                                <div class="input-group-addon">{{materiaSelecionada.medida}}</div>
+                            </div>
+                        </div> 
+                        </div>
+                        <div class="col-md-1">                       
+                            Adicionar
+                            <button ng-disabled="!ingrediente.quantidade || !materiaSelecionada" ng-click="AdicionaIngrediente(ingrediente)" type="submit" class="btn btn-primary">Salvar</button>
+                        </div>                        
+                    </div>                    
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p>Ingredientes de {{rec.nome}}</p>                   
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>Ingrediente</td>
+                        <td>Custo</td>
+                        <td>Qtd</td>
+                        <td>Ação</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in listaIngredientes">
+                        <td>{{item.nome}}</td>
+                        <td>{{item.custo | currency}}</td>
+                        <td>{{item.quantidade | number}} em {{item.medida}}
+                        <td>
+                            <button ng-click="RemoveIngrediente(item)" class="btn btn-danger">Remover</button>
+                        </td>
+                    </tr>                            
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>Total:</td>
+                        <td>{{TotalCusto}}</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>  
+    <div ng-show="!logado" class="alert alert-danger"> <h1 class="text-center">ACESSO NÃO AUTORIZADO</h1></div>

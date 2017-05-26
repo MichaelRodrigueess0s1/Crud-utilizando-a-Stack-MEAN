@@ -1,0 +1,2 @@
+1 Rodar o projeto:
+•npm run start
