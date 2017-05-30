@@ -1,7 +1,8 @@
 angular.module("ReceitasAPP").factory("ReceitaAPI", function ($http, config) {
 	
 	var _getReceitas = function () {
-		return $http.get(config.baseUrl + "/api/receitas");
+		//return $http.get(config.baseUrl + "/api/receitas");
+		return $http.get("http://localhost:3000/receita")
 	};
 
 	var _getReceita = function (id) {

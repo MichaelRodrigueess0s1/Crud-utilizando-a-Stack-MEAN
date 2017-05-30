@@ -17,8 +17,8 @@
 		});
     }
 
-    $scope.adicionareceita = function (receita) {
-		
+    $scope.adicionareceita = function (receita) 
+    {		
 		receita.dataCadastro = new Date();
 		ReceitaAPI.postReceita(receita).success(function (data) {            
              $scope.receitaRetorno = data;
