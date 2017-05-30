@@ -3,27 +3,29 @@
         <h1 class="text-center">{{tituloPagina}}</h1>
     </div>
     <div ng-show="logado" class="container">
+        
         <a href="#/novaReceita" class="btn btn-default">Nova Receita</a>
         <div class="row">
             <table id="tblReceitas" class="table table-stripped tabela" cellspacing="0" width="100%">
                 <thead>
                     <tr>
                         <td>Nome</td>
-                        <td>Custo</td>
-                        <td>Preço Venda</td>
-                        <td>Lucro</td>
-                        <td>Tipo Receita</td>
+                        <td>Tipo</td>
+                        <td>Dificuldade</td>
+                        <td>Tempo</td>                        
                         <td></td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="receita in receitas">
                         <td>{{receita.nome}}</td>
-                        <td>{{receita.custototal}}</td>
-                        <td>{{receita.precovenda}}</td>
-                        <td>{{receita.lucrototal}}</td>
-                        <td>{{receita.tipo_receita}}</td>
-                        <td><a class="btn btn-default" href="#/detalhesReceita/{{receita.id}}">Ver</a></td>
+                        <td>{{receita.tipo}}</td>
+                        <td>{{receita.dificuldade}}</td>
+                        <td>{{receita.tempo}}</td>                        
+                        <td>
+                            <a class="btn btn-default" href="#/detalhesReceita/{{receita._id}}">Ver</a>
+                            <button class="btn btn-danger" ng-click="apagaReceita(receita._id)" >Apagar</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>

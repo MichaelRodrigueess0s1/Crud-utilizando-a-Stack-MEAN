@@ -25,19 +25,19 @@
                 <div class="col-md-4">
                 <div class="radio">
                   <label for="dificuldade-0">
-                    <input ng-model="receita.dificuldade" type="radio" name="dificuldade" id="dificuldade-0" value="1" checked="checked">
+                    <input ng-model="receita.dificuldade" type="radio" name="dificuldade" id="dificuldade-0" value="Fácil" checked="checked">
                     Fácil
                   </label>
                 </div>
                 <div class="radio">
                   <label for="dificuldade-1">
-                    <input ng-model="receita.dificuldade" type="radio" name="dificuldade" id="dificuldade-1" value="2">
+                    <input ng-model="receita.dificuldade" type="radio" name="dificuldade" id="dificuldade-1" value="Médio">
                     Média
                   </label>
                 </div>
                 <div class="radio">
                   <label for="dificuldade-2">
-                    <input ng-model="receita.dificuldade" type="radio" name="dificuldade" id="dificuldade-2" value="3">
+                    <input ng-model="receita.dificuldade" type="radio" name="dificuldade" id="dificuldade-2" value="Difícil">
                     Dificil
                   </label>
                 </div>
@@ -68,7 +68,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="passo">Passo a Passo</label>
               <div class="col-md-4">                     
-                <textarea ng-required="true" ng-model="receita.passopasso" class="form-control" id="passo" name="Passo">Descreva aqui o passo a passo para poder fazer a receita</textarea>
+                <textarea ng-required="true" ng-model="receita.tutorial" class="form-control" id="passo" name="Passo">Descreva aqui o passo a passo para poder fazer a receita</textarea>
                    <span style="color:#FF0000" ng-show="formularioReceita.Passo.$invalid && formularioReceita.Passo.$dirty"> 
 				              È obrigatório Descrever o passo a passo da receita </span> 
               </div>

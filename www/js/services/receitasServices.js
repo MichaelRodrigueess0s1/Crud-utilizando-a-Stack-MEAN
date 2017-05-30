@@ -2,7 +2,7 @@ angular.module("ReceitasAPP").factory("ReceitaAPI", function ($http, config) {
 	
 	var _getReceitas = function () {
 		//return $http.get(config.baseUrl + "/api/receitas");
-		return $http.get("http://localhost:3000/receita")
+		return $http.get("http://localhost:3000/api/receita")
 	};
 
 	var _getReceita = function (id) {
@@ -10,7 +10,7 @@ angular.module("ReceitasAPP").factory("ReceitaAPI", function ($http, config) {
 	};
 
 	var _postReceita = function (receita) {
-		return $http.post(config.baseUrl + "/api/receitas", receita);
+		return $http.post("http://localhost:3000/api/receita", receita);
 	};
 
 	var _putReceita = function (receita) {
@@ -18,7 +18,8 @@ angular.module("ReceitasAPP").factory("ReceitaAPI", function ($http, config) {
 	};
 
 	var _deleteReceita = function (id) {
-		return $http.delete(config.baseUrl + "/api/receitas/"+id);
+		console.log("Apagando Receita"+id);
+		return $http.delete("http://localhost:3000/api/receita/"+id);
 	};
 
 	return {				
