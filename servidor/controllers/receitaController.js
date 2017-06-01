@@ -12,7 +12,7 @@ exports.lista = function(req, res)
                 res.send(err);
 
             res.json(receita);
-        });
+        });        
 }
 
 exports.get = function(req, res) {
@@ -35,9 +35,9 @@ exports.atualiza = function(req, res)
         var receRec = req.body;
         
         //Segundo: Diferente do Selecionar Por Id... a resposta será a atribuição do que encontramos na classe modelo:
-        usuario.nome = usuRec.nome;
-        usuario.login = usuRec.login;
-        usuario.senha = usuRec.senha;
+        //usuario.nome = usuRec.nome;
+        //usuario.login = usuRec.login;
+        //usuario.senha = usuRec.senha;
         receita.nome = receRec.nome;
         receita.dificuldade = receRec.dificuldade;
         receita.tipo = receRec.tipo;

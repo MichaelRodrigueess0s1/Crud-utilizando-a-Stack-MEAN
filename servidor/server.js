@@ -4,13 +4,10 @@ var express = require('express'),
   mongoose = require('mongoose'),
   Usuario = require('./models/usuarioModel'),
   Receita = require('./models/ReceitaModel');
-  bodyParser = require('body-parser');
+  bodyParser = require('body-parser'); 
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:27017');
-
-
-
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
