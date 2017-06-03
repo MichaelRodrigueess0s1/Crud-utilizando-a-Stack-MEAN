@@ -27,4 +27,20 @@ angular.module("ReceitasAPP").config(function ($routeProvider) {
 			}
 		}
 	});	
+
+	$routeProvider.when("/editaReceita/:id", {
+		templateUrl: "view/viewEditaReceita.html",
+		controller: "editaReceitaCtrl",
+		resolve: {
+			
+			rec: function (ReceitaAPI, $route) {
+				 console.log($route.current.params.id);
+				return ReceitaAPI.getReceita($route.current.params.id);
+			}
+		}
+	});	
+
+
+
+
 });

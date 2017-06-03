@@ -6,15 +6,15 @@ angular.module("ReceitasAPP").factory("ReceitaAPI", function ($http, config) {
 	};
 
 	var _getReceita = function (id) {
-		return $http.get(config.baseUrl + "/api/receitas/"+id);
+		return $http.get("http://localhost:3000/api/receita/"+id);
 	};
 
 	var _postReceita = function (receita) {
 		return $http.post("http://localhost:3000/api/receita", receita);
 	};
 
-	var _putReceita = function (receita) {
-		return $http.put(config.baseUrl + "/api/receitas", receita);
+	var _putReceita = function (receita, id) {
+		return $http.put("http://localhost:3000/api/receita/"+id, receita);
 	};
 
 	var _deleteReceita = function (id) {

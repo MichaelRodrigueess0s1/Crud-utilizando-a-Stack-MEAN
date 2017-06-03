@@ -45,7 +45,7 @@ exports.atualiza = function(req, res)
         receita.tempo = receRec.tempo;
 
         //Terceiro: Agora que já atualizamos os campos, precisamos salvar essa alteração....
-        Receita.save(function(error) {
+        receita.save(function(error) {
             if(error)
                 res.send(error);
 
